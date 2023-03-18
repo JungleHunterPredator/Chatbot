@@ -1,10 +1,5 @@
 import os
-import openai 
-from dotenv import load_dotenv
-from colorama import Fore, Back, Style
-
-# load values from the .env file if it exists
-load_dotenv()
+import openai
 
 # configure OpenAI
 openai.api_key = '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'
