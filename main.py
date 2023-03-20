@@ -1,4 +1,4 @@
-from Chatbot import main
+from Chatbot import main, getPrompt
 import streamlit as st
 
 st.set_page_config(page_title = "My Chatbot App", page_icon = ":tada:", layout = "wide")
@@ -13,9 +13,10 @@ with st.container():
         st.markdown("Chat with me if you feel bored")
         st.video('https://www.youtube.com/watch?v=pX6zqaEHAdw')
     elif app_mode == "Chatbot":
+        prompt = st.text_area("Prompt:")
         st.text("Please talk to me")
         text = st.text_input("You:")
         if text != "":
             st.write("Chatbot:")
             with st.spinner("Loading..."):
-                st.write(main(text))
+                st.write(main(text, prompt))

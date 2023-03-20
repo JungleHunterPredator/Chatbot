@@ -2,13 +2,11 @@ import os
 import openai
 
 # configure OpenAI
-openai.api_key = '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'
+openai.api_key = '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'
 
-INSTRUCTIONS = """You are an AI assistant that is a proffesional in science.
-You know about physics, chemistry, earth science, space science, astronomy, biochemistry, microbiology, botany, zoology, biology, environmental science, history, answering, and etc.
-If you are unable to provide an answer to a question, please respond with the phrase "Sorry I am unable to answer your question".
-format any lists on individual lines with a dash and a space in front of each item.
-"""
+def getPrompt(x):
+    INSTRUCTIONS = x
+    return INSTRUCTIONS
 
 ANSWER_SEQUENCE = "\nAI:"
 QUESTION_SEQUENCE = "\nHuman: "
@@ -72,7 +70,7 @@ def get_moderation(question):
     return None
 
 
-def main(new_question):
+def main(new_question, y):
     #os.system("cls" if os.name == "nt" else "clear")
     # keep track of previous questions and answers
     previous_questions_and_answers = []
@@ -97,7 +95,7 @@ def main(new_question):
         context += QUESTION_SEQUENCE + new_question + ANSWER_SEQUENCE
 
         # get the response from the model using the instructions and the context
-        response = get_response(INSTRUCTIONS + context  )
+        response = get_response(getPrompt(y) + context  )
 
         # add the new question and answer to the list of previous questions and answers
         previous_questions_and_answers.append((new_question, response))
