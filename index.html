@@ -1,8 +1,7 @@
-<html>
-    <head>
-    <py-config>
-        plugins = ["https://pyscript.net/latest/plugins/python/py_tutor.py"]
-    </py-config>
+<py-config>
+    plugins = ["https://pyscript.net/latest/plugins/python/py_tutor.py"]
+</py-config>
+<section class="pyscript">
     <py-script>
         from Chatbot import main, getPrompt
         import streamlit as st
@@ -27,5 +26,4 @@
                     with st.spinner("Loading..."):
                         st.write(main(text, prompt))
     </py-script>
-    </head>
-</html>
+</section>
